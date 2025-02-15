@@ -46,6 +46,15 @@ $(call inherit-product, vendor/pb/config/common.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 ~~~
 PS：PBRP不支持使用watch_mdpi
+
+4.无ADB
+解包你的官方recovery，从ramdisk中提取init.rc，并复制到设备树recovery/root中
+~~~
+abootimg -x path/to/recovery.img
+abootimg-unpack-initrd path/to/initrd.img
+cd path/to/ramdisk
+cp path/to/init.rc path/to/root
+~~~
 ## 其他相关网站
 #### 1.获取twrp设备树（需要拥有直连recovery/boot镜像链接）
 ~~~
